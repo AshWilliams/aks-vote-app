@@ -16,6 +16,27 @@ To walk through a quick deployment of this application, see the AKS [quick start
 
 To walk through a complete experience where this code is packaged into container images, uploaded to Azure Container Registry, and then run in and AKS cluster, see the [AKS tutorials](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app?WT.mc_id=none-github-nepeters).
 
+# Running this project on AKS
+
+Login to AKS (From PowerShell o CloudShell)
+
+    az login
+    az aks get-credentials --resource-group <rgname> --name <aksname>
+
+Clone the repository
+
+    git clone https://github.com/AshWilliams/aks-vote-app.git
+    cd aks-vote-app
+
+Apply the yaml file (deployment and services)
+
+    kubectl apply -f aks-vote-app-redis.yaml
+
+Wait for the `Loadbalancer` service to get the `external ip`
+
+    kubectl get svc azure-vote-front --watch  
+
+
 ## Contributing
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
