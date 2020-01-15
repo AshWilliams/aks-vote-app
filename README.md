@@ -16,6 +16,17 @@ To walk through a quick deployment of this application, see the AKS [quick start
 
 To walk through a complete experience where this code is packaged into container images, uploaded to Azure Container Registry, and then run in and AKS cluster, see the [AKS tutorials](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app?WT.mc_id=none-github-nepeters).
 
+# How to build the `docker image`
+
+    git clone https://github.com/AshWilliams/aks-vote-app.git
+    cd aks-vote-app\aks-vote-app
+    #create the image locally
+    docker build -t <login.server>.azurecr.io/aks-vote-app:latest .
+    #login to the Azure Container Registry
+    docker login --username <acr-username> --password <thepassword> <login.server>.azurecr.io
+    #pushing the image to the ACR
+    docker push <login.server>.azurecr.io/aks-vote-app:latest
+
 # Running this project on AKS
 
 Login to AKS (From PowerShell o CloudShell)
