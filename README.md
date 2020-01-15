@@ -27,6 +27,7 @@ To walk through a complete experience where this code is packaged into container
     #pushing the image to the ACR
     docker push <login.server>.azurecr.io/aks-vote-app:latest
 
+
 # Running this project on AKS
 
 Login to AKS (From PowerShell o CloudShell)
@@ -38,6 +39,10 @@ Clone the repository
 
     git clone https://github.com/AshWilliams/aks-vote-app.git
     cd aks-vote-app
+
+Attach the ACR to our AKS
+
+    az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
 
 Apply the yaml file (deployment and services)
 
