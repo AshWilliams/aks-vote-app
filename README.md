@@ -64,6 +64,14 @@ Then in your `yaml`, at the same level as `containers`
     imagePullSecrets:
        - name: SECRET-NAME
 
+
+# Contexts
+
+    kubectl config get-contexts                          # display list of contexts 
+    kubectl config current-context                       # display the current-context
+    kubectl config use-context my-cluster-name           # set the default context to my-cluster-name
+
+
 ## Contributing
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
