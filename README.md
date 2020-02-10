@@ -53,6 +53,17 @@ Wait for the `Loadbalancer` service to get the `external ip`
     kubectl get svc azure-vote-front --watch  
 
 
+# Secrets
+
+Create ACR docker.registry secret
+
+    kubectl create secret docker-registry SECRET-NAME --docker-server=ACRNAME.azurecr.io --docker-username=ACRUSER --docker-password=THEPASSWORD --docker-email=ANYVALIDEMAIL
+    
+Then in your `yaml`, at the same level as `containers`
+
+    imagePullSecrets:
+       - name: SECRET-NAME
+
 ## Contributing
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
